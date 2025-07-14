@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Futurinx offers web development, AI integration, and digital solutions for startups and businesses. Based in Malappuram, Kerala.">
+    <meta name="keywords" content="Futurinx, Web Development, AI Solutions, Startups, Projects, Innovation, Digital Solutions">
+    <meta name="author" content="Futurinx Tech Team">
+    <meta property="og:title" content="Futurinx | Web & AI Solutions">
+    <meta property="og:description" content="Building intelligent digital futures with Futurinx.">
+    <meta property="og:image" content="https://futurinx.in/images/logo/futurinx.svg">
+    <meta property="og:url" content="https://futurinx.in">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" type="image/png" href="/futurinx-main/images/logo/futurinx.svg">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="canonical" href="https://futurinx.com/" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/featherlight@1.7.14/release/featherlight.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/featherlight@1.7.14/release/featherlight.gallery.min.css">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.     1/axios.min.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://unpkg.com/featherlight@1.7.14/release/featherlight.min.js"></script>
+    <script src="https://unpkg.com/featherlight@1.7.14/release/featherlight.gallery.min.js"></script>             
+    <title>Futurinx | Web Development & AI Services in Kerala</title>
+    <style>
+        /* Custom Styles */
+body {
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+        .backdrop-blur {
+            backdrop-filter: blur(10px);
+        }
+        /* Mobile menu styles */
+        .mobile-menu {
+            display: none;
+            transform: translateX(100%);
+            transition: transform 0.3s ease-in-out;
+        }
+        .mobile-menu.active {
+            display: flex;
+            transform: translateX(0);
+        }
+        /* Responsive breakpoints */
+        @media (max-width: 768px) {
+            .desktop-menu {
+                display: none;
+            }
+            .mobile-menu {
+                display: none; /* Hidden by default, shown via JS */
+                flex-direction: column;
+                position: fixed;
+                top: 60px;
+                right: 0;
+                width: 75%;
+                max-width: 300px;
+                height: 100vh;
+                background-color: white;
+                box-shadow: -2px 0 6px rgba(0, 0, 0, 0.1);
+                z-index: 40;
+            }
+            .mobile-menu a {
+                padding: 15px 20px;
+                text-align: left;
+                border-bottom: 1px solid #e5e7eb;
+                color: #1f2937;
+                font-size: 1.1rem;
+                transition: background-color 0.2s;
+            }
+            .mobile-menu a:hover {
+                background-color: #f3f4f6;
+                color: #00ADB5;
+            }
+        }
+        @media (min-width: 640px) and (max-width: 768px) {
+            .mobile-menu {
+                width: 50%;
+            }
+        }
+        .scroll-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #0E76A8;
+            color: white;
+            padding: 10px;
+            border-radius: 50%;
+            display: none;
+            cursor: pointer;
+        }
+        /*.dark-mode {
+            background-color: #1a202c;
+            color: #e2e8f0;
+        }
+        .dark-mode .bg-white {
+            background-color: #2d3748;
+        }
+        .dark-mode .text-gray-800 {
+            color: #e2e8f0;
+        }
+            
+        */
+        .project-card:hover img {
+            transform: scale(1.05);
+            transition: transform 0.3s ease;
+        }
+        .team-card:hover img {
+            transform: scale(1.1);
+            transition: transform 0.3s ease;
+        }
+        /* Lightbox for Gallery and Projects */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+        .lightbox img {
+            max-width: 90%;
+            max-height: 90%;
+        }
+        .home-section {
+            color: white;
+            padding: 80px 0;
+        }
+        .services, .about, .blog, footer {
+            padding: 80px 10%;
+            text-align: center;
+        }
+        .cards {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 40px;
+        }
+        .card {
+            background: #0139f134;
+            padding: 30px;
+            border-radius: 12px;
+            width: 300px;
+            transition: transform 0.3s;
+        }
+        .card:hover {
+            transform: translateY(-10px);
+        }
+        .card h3 {
+            color: #000000;
+            margin-bottom: 10px;
+        }
+        .card p {
+            color: #02020279;
+            font-size: 0.9rem;
+        }
+        .blog p {
+            max-width: 600px;
+            margin: auto;
+            color: #0e0680;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800">
+    <!-- Notification Banner 
+    <div class="bg-[#0E76A8] text-white text-center py-2">
+        <p>Join our upcoming Hackathon on July 15, 2025! <a href="#events" class="underline">Register Now</a></p>
+    </div>
+-->
+    <!-- Sticky Navigation Bar -->
+    <nav class="bg-white shadow-md sticky top-0 z-50 backdrop-blur">
+            <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+                <div class="flex items-center">
+                    <img src="/futurinx-main/images/logo/futurinx.svg" alt="Futurinx Logo" class="h-10 mr-2">
+                    <span class="font-bold text-xl">FuturinxTech</span>
+                </div>
+                <!-- Desktop Menu -->
+                <div class="desktop-menu space-x-4 hidden md:flex">
+                    <a href="#home" class="hover:text-[#00ADB5] transition-colors">Home</a>
+                    <a href="#about" class="hover:text-[#00ADB5] transition-colors">About</a>
+                    <a href="#team" class="hover:text-[#00ADB5] transition-colors">Team</a>
+                    <a href="#projects" class="hover:text-[#00ADB5] transition-colors">Projects</a>
+                    <a href="#blog" class="hover:text-[#00ADB5] transition-colors">Blog</a>
+                    <a href="#client" class="hover:text-[#00ADB5] transition-colors">Client Services</a>
+                    <a href="#contact" class="hover:text-[#00ADB5] transition-colors">Contact</a>
+                </div>
+                <!-- Hamburger Icon for Mobile -->
+                <div class="mobile-menu-toggle md:hidden">
+                    <button id="hamburger" class="text-gray-800 focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="mobile-menu">
+                <a href="#home" class="hover:text-[#00ADB5]">Home</a>
+                <a href="#about" class="hover:text-[#00ADB5]">About</a>
+                <a href="#team" class="hover:text-[#00ADB5]">Team</a>
+                <a href="#projects" class="hover:text-[#00ADB5]">Projects</a>
+                <a href="#blog" class="hover:text-[#00ADB5]">Blog</a>
+                <a href="#client" class="hover:text-[#00ADB5]">Client Services</a>
+                <a href="#contact" class="hover:text-[#00ADB5]">Contact</a>
+            </div>
+    </nav>
+
+
+    <!-- Scroll-to-Top Button -->
+    <button class="scroll-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">↑</button>
+
+    <!-- Hero Section -->
+    <div>
+      <div class="home-section bg-cover bg-center h-screen" style="background-image: url('/futurinx-main/images/icons/bg1.gif');">
+        <div class="flex items-center justify-center h-full backdrop-blur">
+            <div class="text-center text-black">
+                <h1 class="text-5xl font-bold mb-4">Welcome to Futurinx</h1>
+                <p class="text-xl mb-6">Innovating Digital Experiences with Web & AI</p>
+                <p class="text-lg mb-8">Join us in building the future of technology and entrepreneurship.</p>
+                <a href="#about" class="bg-white text-[#0E76A8] px-6 py-3 rounded-full font-semibold hover:bg-[#00ADB5] hover:text-black transition">Learn More</a>
+                <a href="#contact" class="bg-white text-[#0E76A8] px-6 py-3 rounded-full font-semibold hover:bg-[#00ADB5] hover:text-black transition">Join Now</a>
+                </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- About Section -->
+    <section id="about" class="py-16" data-aos="fade-up">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-8">About Us</h2>
+            <p class="text-lg mb-4">Futurinx is a modern tech company offering cutting-edge web development and AI-powered solutions. Our mission is to innovate and streamline digital experiences for businesses and individuals.</p>
+            <p class="text-lg mb-4">Vision: To lead the digital revolution with smart, scalable, and sustainable technologies.</p>
+            <p class="text-lg mb-8">Services: Custom web apps, AI integrations, branding, and tech consulting.</p>
+            <div class="flex justify-center mb-6">
+                <a href="#projects" class="bg-[#0E76A8] text-white px-6 py-3 rounded-full font-semibold hover:bg-[#00ADB5] transition">Explore Our Projects</a>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-center">
+                <div class="bg-white p-6 shadow-md" data-aos="zoom-in">
+                    <h3 class="text-2xl font-bold">50+</h3>
+                    <p>Project</p>
+                </div>
+                <div class="bg-white p-6 shadow-md" data-aos="zoom-in" data-aos-delay="100">
+                    <h3 class="text-2xl font-bold">6+</h3>
+                    <p>Startups Collab</p>
+                </div>
+                <div class="bg-white p-6 shadow-md" data-aos="zoom-in" data-aos-delay="200">
+                    <h3 class="text-2xl font-bold">7+</h3>
+                    <p>Workers</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="team" class="py-16 bg-gray-50" data-aos="fade-up">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-8">Our Team</h2>
+            <p class="text-lg text-center mb-8">Meet the passionate individuals behind Futurinx, dedicated to driving innovation and excellence in technology.</p>
+           <!-- <div class="flex justify-center mb-6">
+                <select id="team-filter" class="p-2 border rounded">
+                    <option value="all">All</option>
+                    <option value="founder">founder</option>
+                    <option value="flutter">FLUTTER</option>
+                    <option value="eha">ETHICAL HACKER</option>
+                    <option value="mech">WEB DESINER</option>
+                    <option value="mech">mern stack developer</option>
+                </select>
+            </div> -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+                <div class="team-card bg-white p-6 shadow-md text-center" data-department="cse" data-aos="fade-up">
+                    <img src="/futurinx-main/images/founder/nihalvk.webp" alt="Team Member 1" class="h-32 w-32 mx-auto rounded-full object-cover mb-4">
+                    <h3 class="text-xl font-semibold">nihal vk</h3>
+                    <p class="text-gray-600">FOUNDER OF Futurinx</p>
+                </div>
+                <div class="team-card bg-white p-6 shadow-md text-center" data-department="ece" data-aos="fade-up" data-aos-delay="100">
+                    <img src="/futurinx-main/images/founder/nihalvk.webp" alt="Team Member 2" class="h-32 w-32 mx-auto rounded-full object-cover mb-4">
+                    <h3 class="text-xl font-semibold">Jane Smith</h3>
+                    <p class="text-gray-600">FLUTTER developer</p>
+                </div>
+                <div class="team-card bg-white p-6 shadow-md text-center" data-department="mech" data-aos="fade-up" data-aos-delay="200">
+                    <img src="/futurinx-main/images/founder/nihalvk.webp" alt="Team Member 3" class="h-32 w-32 mx-auto rounded-full object-cover mb-4">
+                    <h3 class="text-xl font-semibold">Alex Brown</h3>
+                    <p class="text-gray-600">Web DESINER</p>
+                </div>
+            </div>
+        </div><br>
+        <div class="text-center mb-8">
+            <a href="https://wa.me/918281302974" class="bg-[#0E76A8] text-black px-6 py-3 rounded-full font-semibold hover:bg-[#00ADB5] transition">Join Our Team</a>
+        </div>
+
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-16" data-aos="fade-up">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-8">Our Projects</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="project-card bg-white p-6 shadow-md cursor-pointer" data-aos="fade-up">
+                    <a href="https://apptechgigproject.vercel.app/"><img src="/futurinx-main/images/project/ (1).webp" alt="Project 1" class="w-full h-48 object-cover mb-4"></a>
+                    <a href="https://apptechgigproject.vercel.app/"><h3 class="text-xl font-semibold">AppTechGig Website</h3></a>
+                    <a href="https://apptechgigproject.vercel.app/"><p class="text-gray-600">infomation technology company</p></a>
+                    <a href="https://apptechgigproject.vercel.app/"><span class="inline-block bg-green-200 text-green-800 px-2 py-1 rounded mt-2">Completed</span></a>
+                </div>
+
+                <div class="project-card bg-white p-6 shadow-md cursor-pointer" data-aos="fade-up">
+                    <a href="https://izozzanihal.github.io/apptechgig.com/"><img src="/futurinx-main/images/project/ (3).webp" alt="Project 1" class="w-full h-48 object-cover mb-4"></a>
+                    <a href="https://izozzanihal.github.io/apptechgig.com/"><h3 class="text-xl font-semibold">AppTechGig Website</h3></a>
+                    <a href="https://izozzanihal.github.io/apptechgig.com/"><p class="text-gray-600">infomation technology company</p></a>
+                    <a href="https://izozzanihal.github.io/apptechgig.com/"><span class="inline-block bg-green-200 text-green-800 px-2 py-1 rounded mt-2">Completed</span></a>
+                </div>
+
+                <div class="project-card bg-white p-6 shadow-md cursor-pointer" data-aos="fade-up">
+                    <a href="https://afnanvlr.vercel.app/"><img src="/futurinx-main/images/project/ (4).webp" alt="Project 1" class="w-full h-48 object-cover mb-4"></a>
+                    <a href="https://afnanvlr.vercel.app/"><h3 class="text-xl font-semibold">Portfolio</h3></a>
+                    <a href="https://afnanvlr.vercel.app/"><p class="text-gray-600">Afnan Portfolio</p></a>
+                    <a href="https://afnanvlr.vercel.app/"><span class="inline-block bg-green-200 text-green-800 px-2 py-1 rounded mt-2">Completed</span></a>
+                </div>
+
+                <div class="project-card bg-white p-6 shadow-md cursor-pointer" data-aos="fade-up">
+                    <a href="https://izozzanihal.github.io/midhun/"><img src="/futurinx-main/images/project/ (5).webp" alt="Project 1" class="w-full h-48 object-cover mb-4"></a>
+                    <a href="https://izozzanihal.github.io/midhun/"><h3 class="text-xl font-semibold">Portfolio</h3></a>
+                    <a href="https://izozzanihal.github.io/midhun/"><p class="text-gray-600">Midhun P Portfolio</p></a>
+                    <a href="https://izozzanihal.github.io/midhun/"><span class="inline-block bg-green-200 text-green-800 px-2 py-1 rounded mt-2">Completed</span></a>
+                </div>
+
+                <div class="project-card bg-white p-6 shadow-md cursor-pointer" data-aos="fade-up">
+                    <a href="https://research-paper-plum.vercel.app/"><img src="/futurinx-main/images/project/ (6).webp" alt="Project 1" class="w-full h-48 object-cover mb-4"></a>
+                    <a href="https://research-paper-plum.vercel.app/"><h3 class="text-xl font-semibold">REASERCH</h3></a>
+                    <a href="https://research-paper-plum.vercel.app/"><p class="text-gray-600">REASERCH pepar</p></a>
+                    <a href="https://research-paper-plum.vercel.app/"><span class="inline-block bg-green-200 text-green-800 px-2 py-1 rounded mt-2">Completed</span></a>
+                </div>
+
+                <div class="project-card bg-white p-6 shadow-md cursor-pointer" data-aos="fade-up">
+                    <a href="https://cerebraconnect.com/"><img src="/futurinx-main/images/project/ (7).webp" alt="Project 1" class="w-full h-48 object-cover mb-4"></a>
+                    <a href="https://cerebraconnect.com/"><h3 class="text-xl font-semibold">cerebra cennect</h3></a>
+                    <a href="https://cerebraconnect.com/"><p class="text-gray-600">bci Startup</p></a>
+                    <a href="https://cerebraconnect.com/"><span class="inline-block bg-green-200 text-green-800 px-2 py-1 rounded mt-2">Completed</span></a>
+                </div>
+
+                <div class="project-card bg-white p-6 shadow-md cursor-pointer" data-aos="fade-up">
+                    <a href="https://ni-hal.info/"><img src="/futurinx-main/images/project/ (8).webp" alt="Project 1" class="w-full h-48 object-cover mb-4"></a>
+                    <a href="https://ni-hal.info/"><h3 class="text-xl font-semibold">Portfolio</h3></a>
+                    <a href="https://ni-hal.info/"><p class="text-gray-600">Nihal Vk Portfolio</p></a>
+                    <a href="https://ni-hal.info/"><span class="inline-block bg-green-200 text-green-800 px-2 py-1 rounded mt-2">Completed</span></a>
+                </div>
+
+                <div class="project-card bg-white p-6 shadow-md cursor-pointer" data-aos="fade-up">
+                    <a href="https://apptechgigproject.vercel.app/"><img src="/futurinx-main/images/project/ (2).webp" alt="Project 1" class="w-full h-48 object-cover mb-4"></a>
+                    <a href="https://apptechgigproject.vercel.app/"><h3 class="text-xl font-semibold">AppTechGig Website</h3></a>
+                    <a href="https://apptechgigproject.vercel.app/"><p class="text-gray-600">infomation technology company</p></a>
+                    <a href="https://apptechgigproject.vercel.app/"><span class="inline-block bg-green-200 text-green-800 px-2 py-1 rounded mt-2">Completed</span></a>
+                </div>
+
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Client Section -->
+    <section class="services" id="services">
+        <h2><strong>Client Services</strong></h2>
+        <div class="cards">
+        <div class="card">
+            <h3>AI & BCI Development</h3>
+            <p>Cutting-edge artificial intelligence and brain-computer interface technologies.</p>
+        </div>
+        <div class="card">
+            <h3>Website Development</h3>
+            <p>Responsive, SEO-optimized, and custom-designed websites for any business.</p>
+        </div>
+        <div class="card">
+            <h3>WebApp Development</h3>
+            <p>Next-gen, fast, secure, and scalable web applications.</p>
+        </div>
+        </div>
+    </section>
+
+    <section id="packages" class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 text-center">
+        <h2 class="text-4xl font-bold mb-12 text-gray-800">💼 Our Website Packages</h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        
+        <!-- Starter -->
+        <div class="border-2 border-blue-500 rounded-2xl p-6 shadow-lg bg-blue-50">
+            <h3 class="text-2xl font-semibold text-blue-700 mb-3">Starter – ₹1499</h3>
+            <p class="text-gray-600 mb-4 text-sm">Great for personal websites & portfolios.</p>
+            <ul class="text-gray-700 text-sm space-y-2 text-left">
+            <li>✅ 3-page static website</li>
+            <li>✅ Mobile-friendly layout</li>
+            <li>✅ Basic SEO setup</li>
+            <li>✅ 3-day delivery</li>
+            </ul>
+            <div class="mt-6">
+            <a href="https://wa.me/918281302974" class="inline-block px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 text-sm">
+                Choose Starter
+            </a>
+            </div>
+        </div>
+
+        <!-- Professional -->
+        <div class="border-2 border-blue-500 rounded-2xl p-6 shadow-lg bg-blue-50">
+            <h3 class="text-2xl font-semibold text-blue-800 mb-3">Professional – ₹4999</h3>
+            <p class="text-gray-700 mb-4 text-sm">Perfect for small businesses & startups.</p>
+            <ul class="text-gray-800 text-sm space-y-2 text-left">
+            <li>✅ Up to 7 pages</li>
+            <li>✅ Admin panel (CMS)</li>
+            <li>✅ Google indexing + SEO</li>
+            <li>✅ Social media links</li>
+            <li>✅ 7-day delivery</li>
+            </ul>
+            <div class="mt-6">
+            <a href="https://wa.me/918281302974" class="inline-block px-4 py-2 bg-blue-700 text-white rounded-lg hover:bg-blue-800 text-sm">
+                Choose Professional
+            </a>
+            </div>
+        </div>
+
+        <!-- Ultimate -->
+        <div class="border-2 border-blue-500 rounded-2xl p-6 shadow-lg bg-blue-50">
+            <h3 class="text-2xl font-semibold text-blue-700 mb-3">Ultimate – ₹9999</h3>
+            <p class="text-gray-600 mb-4 text-sm">All-in-one solution for your brand online.</p>
+            <ul class="text-gray-700 text-sm space-y-2 text-left">
+            <li>✅ Custom website (dynamic)</li>
+            <li>✅ Admin dashboard</li>
+            <li>✅ SEO + analytics setup</li>
+            <li>✅ WhatsApp chat, blog & more</li>
+            <li>✅ Delivery in 10–15 days</li>
+            </ul>
+            <div class="mt-6">
+            <a href="https://wa.me/918281302974" class="inline-block px-4 py-2 bg-blue-700 text-white rounded-lg hover:bg-blue-800 text-sm">
+                Choose Ultimate
+            </a>
+            </div>
+        </div>
+
+        </div>
+        
+        <p class="mt-10 text-sm text-gray-500">All plans include lifetime support and free basic edits. Pay only once. No hidden fees.</p>
+    </div>
+
+        <!-- Call to Action -->
+        <div class="text-center mt-10">
+        <a href="https://wa.me/918281302974" target="_blank" class="inline-block px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 text-sm">
+            Start Your Website Today on WhatsApp
+        </a>
+        <p class="mt-4 text-sm text-gray-500">Stating ₹1499  website  – Futurinx Tech</p>
+        </div>
+    </div>
+    </section>
+
+
+    </section>
+
+    <section id="blog" class="bg-gray-100 py-16">
+    <div class="max-w-7xl mx-auto px-4 text-center">
+        <h2 class="text-4xl font-bold mb-10 text-gray-800">📝 Latest Blog Posts</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+        <!-- Blog Card 1 -->
+        <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
+            <img src="images/icons/bci.gif" alt="Blog Image" class="w-full h-48 object-cover">
+            <div class="p-6 text-left">
+            <h3 class="text-xl font-semibold text-gray-800 mb-2">How BCI and AI Are Reshaping Human-Machine Interfaces</h3>
+            <p class="text-gray-600 text-sm mb-4">Discover how brain-computer interfaces and AI are working together to redefine the way we interact with technology.</p>
+            <div class="flex justify-between items-center text-sm text-gray-500">
+                <span>📅 July 13, 2025</span>
+                <span>#BCI #AI</span>
+            </div>
+            </div>
+        </div>
+
+        <!-- Blog Card 2 -->
+                 <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
+            <img src="images/founder/nihalvk.gif" alt="Blog Image" class="w-full h-48 object-cover">
+            <div class="p-6 text-left">
+            <h3 class="text-xl font-semibold text-gray-800 mb-2">Futurinx: The Journey So Far</h3>
+            <p class="text-gray-600 text-sm mb-4">From campus innovation to global tech service, here’s how Futurinx grew under the leadership of Nihal VK.</p>
+            <div class="flex justify-between items-center text-sm text-gray-500">
+                <span>📅 July 5, 2025</span>
+                <span>#Startup #Journey</span>
+            </div>
+            <div class="mt-4 flex justify-center space-x-4">
+                <a href="https://www.linkedin.com/in/nihal-vk-b17775319/" target="_blank"><img src="/futurinx-main/images/icons/Linkedin Logo.gif" alt="LinkedIn" class="h-6"></a>
+                <a href="https://www.instagram.com/nihal___vk/" target="_blank"><img src="/futurinx-main/images/icons/Instagram Logo.gif" alt="Instagram" class="h-6"></a>
+                <a href="https://www.facebook.com/profile.php?id=100039356781765" target="_blank"><img src="/futurinx-main/images/icons/Facebook Logo.gif" alt="Facebook" class="h-6"></a>
+            </div>
+            </div>
+        </div>
+
+        <!-- Blog Card 3 -->
+        <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
+            <img src="images/icons/Web Development.gif" alt="Blog Image" class="w-full h-48 object-cover">
+            <div class="p-6 text-left">
+            <h3 class="text-xl font-semibold text-gray-800 mb-2">Why Custom WebApps Are Better for Small Businesses</h3>
+            <p class="text-gray-600 text-sm mb-4">Explore the advantages of building a custom web application versus using pre-made templates or CMS systems.</p>
+            <div class="flex justify-between items-center text-sm text-gray-500">
+                <span>📅 July 10, 2025</span>
+                <span>#WebDev #Business</span>
+            </div>
+            </div>
+        </div>
+
+
+        </div>
+
+        <div class="mt-10">
+        <a href="/blog.html" class="inline-block px-6 py-2 bg-blue-600 text-white rounded-full hover:bg-blue-700 text-sm">
+            View All Blog Posts →
+        </a>
+        </div>
+    </div>
+    </section>
+
+
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 bg-gray-50" data-aos="fade-up">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-8">Contact Us</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                    <form id="contact-form" class="space-y-4">
+                        <div>
+                            <label for="name" class="block text-sm font-medium">Name</label>
+                            <input type="text" id="name" class="w-full p-2 border rounded" required>
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-medium">Email</label>
+                            <input type="email" id="email" class="w-full p-2 border rounded" required>
+                        </div>
+                        <div>
+                            <label for="message" class="block text-sm font-medium">Message</label>
+                            <textarea id="message" class="w-full p-2 border rounded" rows="4" required></textarea>
+                        </div>
+                        <button type="submit" class="bg-[#0E76A8] text-white px-6 py-2 rounded hover:bg-[#00ADB5] transition">Send Message</button>
+                    </form>
+                </div>
+                <div>
+                    <p class="mb-4"><strong>Email:</strong> futurinxtech@gmail.com</p>
+                    <p class="mb-4"><strong>Phone:</strong> +91 8281302974</p>
+                    <div class="h-64">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31334.4855476726!2d76.20965409399771!3d10.977657157733264!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba7cc529833b09b%3A0x1635a9815f140cc2!2sPerinthalmanna%2C%20Kerala!5e0!3m2!1sen!2sin!4v1752487240057!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-[#0E76A8] text-black py-8">
+        <div class="container mx-auto px-4 text-center">
+            <p>FuturinxTech</p>
+            <p>Malappuram, Kerela, India</p>
+            <p>&copy; 2025 FuturinxTech. All rights reserved.</p>
+            <div class="mt-4 flex justify-center space-x-4">
+                <a href="https://www.linkedin.com/in/futurinx-tech-048878373/" target="_blank"><img src="/futurinx-main/images/icons/Linkedin Logo.gif" alt="LinkedIn" class="h-6"></a>
+                <a href="https://www.instagram.com/futurinxtech/?__pwa=1" target="_blank"><img src="/futurinx-main/images/icons/Instagram Logo.gif" alt="Instagram" class="h-6"></a>
+                <a href="https://www.facebook.com/profile.php?id=61577910134836" target="_blank"><img src="/futurinx-main/images/icons/Facebook Logo.gif" alt="Facebook" class="h-6"></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Lightbox for Gallery and Projects -->
+    <div id="lightbox" class="lightbox">
+        <img id="lightbox-img" src="" alt="Lightbox Image">
+    </div>
+
+    <!-- WhatsApp Chat Button -->
+    <a href="https://wa.me/918281302974" target="_blank" class="fixed bottom-20 right-20 bg-green-500 text-white p-3 rounded-full">
+        <img src="/futurinx-main/images/icons/whatsapp.gif" alt="WhatsApp" class="h-6">
+    </a>
+
+    <!-- AOS Animation JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+     <script>
+        // Hamburger Menu Toggle
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        hamburger.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
+            hamburger.querySelector('i').classList.toggle('fa-bars');
+            hamburger.querySelector('i').classList.toggle('fa-times');
+        });
+
+        // Close mobile menu when a link is clicked
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+                hamburger.querySelector('i').classList.add('fa-bars');
+                hamburger.querySelector('i').classList.remove('fa-times');
+            });
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!mobileMenu.contains(e.target) && !hamburger.contains(e.target) && mobileMenu.classList.contains('active')) {
+                mobileMenu.classList.remove('active');
+                hamburger.querySelector('i').classList.add('fa-bars');
+                hamburger.querySelector('i').classList.remove('fa-times');
+            }
+        });
+    </script>
+    <script>
+        AOS.init();
+
+        // Dark Mode Toggle
+        const themeToggle = document.getElementById('theme-toggle');
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+        });
+
+        // Scroll-to-Top Button
+        const scrollToTop = document.querySelector('.scroll-to-top');
+        window.addEventListener('scroll', () => {
+            scrollToTop.style.display = window.scrollY > 200 ? 'block' : 'none';
+        });
+
+        // Team Filter
+        const teamFilter = document.getElementById('team-filter');
+        teamFilter.addEventListener('change', () => {
+            const value = teamFilter.value;
+            document.querySelectorAll('.team-card').forEach(card => {
+                card.style.display = value === 'all' || card.dataset.department === value ? 'block' : 'none';
+            });
+        });
+
+        // Gallery Filter
+        const galleryFilter = document.getElementById('gallery-filter');
+        galleryFilter.addEventListener('change', () => {
+            const value = galleryFilter.value;
+            document.querySelectorAll('.gallery-item').forEach(item => {
+                item.style.display = value === 'all' || item.dataset.category === value ? 'block' : 'none';
+            });
+        });
+
+        // Lightbox for Gallery and Projects
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        document.querySelectorAll('.gallery-item, .project-card img').forEach(item => {
+            item.addEventListener('click', () => {
+                lightboxImg.src = item.src;
+                lightbox.style.display = 'flex';
+            });
+        });
+        lightbox.addEventListener('click', () => {
+            lightbox.style.display = 'none';
+        });
+
+        // Contact Form Validation
+        const form = document.getElementById('contact-form');
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+            if (name && email && message) {
+                alert('Message sent successfully!');
+                form.reset();
+            } else {
+                alert('Please fill in all fields.');
+            }
+        });
+    </script>
+</body>
+</html>
